@@ -8,6 +8,7 @@ import Productos from './views/Productos/Productos'
 import Ofertas from './views/Ofertas/Ofertas';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import "./cardsStyle.css";
+import Cart from './views/Cart/Cart';
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/Productos' element={<Productos />} />
         <Route path='/Ofertas' element={<Ofertas />} />
         <Route path='/detail/:id' element={<ItemDetailContainer />} />
+        <Route path='/cart' element={<Cart />} />
 
       </Routes>
 
