@@ -7,6 +7,8 @@ import "../cardsStyle.css";
 
 function ItemDetail({ item }) {
   const { producto, tipo, img, precio, stock } = item;
+  const onAdd = (Agregar) => {
+    console.log(`(${Agregar} ${item.producto} ${item.tipo} `)};
   return (
 
     <div className="cardDos">
@@ -22,7 +24,7 @@ function ItemDetail({ item }) {
         <h4 className="card-descripcionDos">{tipo}</h4>
         <h2 className="card-precioDos">${precio}</h2>
         <h4 className="card-stockDos">{stock}</h4>
-        <ItemCount stock={stock} />
+        <ItemCount stock={stock} onAdd={onAdd} />
       </div>
 
     </div>

@@ -1,45 +1,44 @@
-import {useState}  from "react";
+import { useState } from "react";
 
+const ItemCount = ({ stock, onAdd }) => {
+  const [count, setCount] = useState(1);
+  const [carrito, setCarrito] = useState("Agregar al Carrito");
 
-const ItemCount = ({stock}) => {
+  function add() {
+    count < stock ? setCount(count + 1) : alert("no hay stock");
+  }
 
-    const [count, setCount] = useState(1);
-    const [carrito,setCarrito] = useState("Agregar al Carrito");
+  function rest() {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  }
 
-function add (){
-    count < stock ? setCount(count +  1) : alert("no hay stock")
-}
+ /*  function agregar() {
+    setCarrito("Producto añadido")
+    } */
+  
 
-function rest (){
-   if( count > 1) {
-       setCount (count - 1);
-   }
-}
+  return (
+    <div className="container ">
+      <div className="row  botonesCount">
+        <div className="botones">
+          <button className="boton-restar" onClick={rest}>
+            -
+          </button>
+          <h3 className="p-2 ">{count}</h3>
+          <button className="boton-sumar" onClick={add}>
+            +
+          </button>
+        </div>
+        <div className="botonAdd">
+          <button className="boton-agragar" onClick={onAdd(count)}  >
+            {carrito}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-function onAdd () {
-    setCarrito ("se ha añadido al carrito");
-
-}
-
-return(
-<div className="container ">
- <div className="row  botonesCount">
-     <div className="botones">
-<button className="boton-restar" onClick={rest}>-</button>
-<h3 className="p-2 ">{count}</h3>
-<button className="boton-sumar" onClick={add}>+</button>
- </div>
-<div className="botonAdd">
-<button className="boton-agragar" onClick={onAdd}>{carrito}</button>
-</div>
-
- </div>
- </div>
-
-
-);
-
-}
-
-
-export default ItemCount
+export default ItemCount;
