@@ -1,35 +1,32 @@
-import React from "react";
-import ItemCount from "./ItemCount";
+import React from 'react';
+import ItemCount from './ItemCount';
+import { useContext } from 'react';
+import { CarritoContext } from './CartContext';
 
-import "../cardsStyle.css";
-
-
+import '../cardsStyle.css';
 
 function ItemDetail({ item }) {
-  const { producto, tipo, img, precio, stock } = item;
-  const onAdd = (Agregar) => {
-    console.log(`(${Agregar} ${item.producto} ${item.tipo} `)};
-  return (
+	const { producto, tipo, img, precio, stock } = item;
+	const Carrito = useContext(CarritoContext);
 
-    <div className="cardDos">
+	const onAdd = (count) => {
+		Carrito.Agregar(item, count);
+	};
+	return (
+		<div className="cardDos">
+			<img src={img} alt={producto} />
 
+			<hr></hr>
 
-      <img src={img} alt={producto} />
-
-      <hr></hr>
-
-
-      <div className="card-contenidoDos">
-        <h3 className="card-tituloProdDos">{producto}</h3>
-        <h4 className="card-descripcionDos">{tipo}</h4>
-        <h2 className="card-precioDos">${precio}</h2>
-        <h4 className="card-stockDos">{stock}</h4>
-        <ItemCount stock={stock} onAdd={onAdd} />
-      </div>
-
-    </div>
-
-  );
+			<div className="card-contenidoDos">
+				<h3 className="card-tituloProdDos">{producto}</h3>
+				<h4 className="card-descripcionDos">{tipo}</h4>
+				<h2 className="card-precioDos">${precio}</h2>
+				<h4 className="card-stockDos">{stock}</h4>
+				<ItemCount stock={stock} onAdd={onAdd} />
+			</div>
+		</div>
+	);
 }
 
-export default ItemDetail
+export default ItemDetail;
