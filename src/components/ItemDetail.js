@@ -2,16 +2,19 @@ import React from 'react';
 import ItemCount from './ItemCount';
 import { useContext } from 'react';
 import { CarritoContext } from './CartContext';
+import Item from './Item';
 
 import '../cardsStyle.css';
 
-function ItemDetail({ item }) {
+function ItemDetail({ item = [] }) {
 	const { producto, tipo, img, precio, stock } = item;
+
 	const Carrito = useContext(CarritoContext);
 
 	const onAdd = (count) => {
-		Carrito.Agregar(item, count);
+		Carrito.addItem(item, count);
 	};
+
 	return (
 		<div className="cardDos">
 			<img src={img} alt={producto} />

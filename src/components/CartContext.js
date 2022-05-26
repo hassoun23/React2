@@ -1,22 +1,27 @@
-import { createContext, useState } from 'React';
+import { createContext, useState } from 'react';
 
-export const CarritoContext = createContext();
+export const CarritoContext = createContext([]);
 
-const InitialCarrito = [];
-
-export const CarritoProvaider = ({ children }) => {
+export const CarritoProvaider = ({ InitialCarrito = [], children }) => {
 	const [Carrito, setCarrito] = useState(InitialCarrito);
 
 	const EnCarrito = (id) => {
 		return Carrito.some((el) => el.item.id === id);
 	};
 
-	const Agregar = (item, count) => {
-		if (EnCarrito === true) {
-			setCarrito([...Carrito, { Count: count + 1 }]);
-		} else {
-			setCarrito([...Carrito, { item: item, count: count }]);
-		}
+	const addExistingItem = (item, count) => {
+		let newCarrito = Carrito;
+		let existingItem = newCarrito.find((el) => el.item.id === item.id);
+		existingItem.quant += count;
+		newCarrito[newCarrito.findIndex((el) => el.item.id === item.id)] =
+			existingItem;
+		setCarrito(newCarrito);
+	};
+
+	const addItem = (item, count) => {
+		EnCarrito(item.id)
+			? addExistingItem(item, count)
+			: setCarrito([...Carrito, { item: item, count: count }]);
 	};
 
 	const EliminarItem = (item) => {
@@ -29,7 +34,7 @@ export const CarritoProvaider = ({ children }) => {
 
 	return (
 		<CarritoContext.Provider
-			value={{ EliminarItem, clear, EnCarrito, Agregar }}
+			value={{ Carrito, EliminarItem, clear, EnCarrito, addItem }}
 		>
 			{children}
 		</CarritoContext.Provider>

@@ -1,12 +1,13 @@
-import react from 'react';
+import React from 'react';
 import realstocklogo from '../LOGO.png';
 import { Link, NavLink } from 'react-router-dom';
+import '../Navbar.css';
 
 function NavBar() {
 	return (
 		<>
 			<nav className="navbar navbar-expand-lg navbar-light bg-primary menu">
-				<div className="container">
+				<div className="container d-flex justify-content-between">
 					<NavLink to={'/'} className="navbar-brand" href="#">
 						<img src={realstocklogo} alt="" width="200px" />
 					</NavLink>
@@ -21,8 +22,8 @@ function NavBar() {
 					>
 						<span className="navbar-toggler-icon"></span>
 					</button>
-					<div className="collapse navbar-collapse" id="navbarNav">
-						<ul className="navbar-nav">
+					<div className="collapse navbar-collapse nav-list " id="navbarNav">
+						<ul className="navbar-nav ">
 							<Link to={`/`}>
 								<li className="nav-item">
 									<h3 className="nav-link active" aria-current="page">
