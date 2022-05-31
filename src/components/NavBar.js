@@ -2,6 +2,7 @@ import React from 'react';
 import realstocklogo from '../LOGO.png';
 import { Link, NavLink } from 'react-router-dom';
 import '../Navbar.css';
+import CartWidget from './CartWidget';
 
 function NavBar() {
 	return (
@@ -43,14 +44,10 @@ function NavBar() {
 							</Link>
 						</ul>
 						<div>
-							<i
-								className="fas fa-shopping-cart"
-								aria-hidden="true"
-								id="btnCarrito"
-							></i>
-							<span id="badgeCarrito" class="w3-badge">
-								0
-							</span>
+							<Link to={`/cart`}>
+								+
+								<CartWidget />
+							</Link>
 						</div>
 					</div>
 				</div>

@@ -26,10 +26,17 @@ function ItemDetail({ item = [] }) {
 				<h4 className="card-descripcionDos">{tipo}</h4>
 				<h2 className="card-precioDos">${precio}</h2>
 				<h4 className="card-stockDos">{stock}</h4>
-				<ItemCount stock={stock} onAdd={onAdd} />
+				<ItemCount
+					producto={item.producto}
+					stock={item.stock}
+					precio={item.precio}
+					tipo={item.tipo}
+					onAdd={onAdd}
+					initial={item.stock > 0 ? 1 : 0}
+				/>
 			</div>
 		</div>
 	);
 }
-
+console.log(ItemCount);
 export default ItemDetail;
