@@ -1,22 +1,29 @@
 import React from 'react';
-import { CarritoContext } from './CartContext';
+import { carritoContext } from './CartContext';
 import { useContext } from 'react';
 import CartItem from './CartItem';
 
-const Cart = () => {
-	const cart = useContext(CarritoContext);
+const Cart = (producto) => {
+	const cart = useContext(carritoContext);
+
+	console.log(cart);
 
 	return (
 		<div>
-			{cart.length > 0
-				? cart.map((i) => (
+			{cart.length > 0 ? (
+				cart.map((carr) => {
+					return (
 						<CartItem
-							key={i.item.id}
-							productCarrito={i.item.tipo}
-							count={i.item.count}
-						></CartItem>
-				  ))
-				: null}
+							key={carr.id}
+							producto={carr.item.producto}
+							img={carr.item.img}
+							tipo={carr.item.tipo}
+						/>
+					);
+				})
+			) : (
+				<h3>No hay productos en el carrito</h3>
+			)}
 		</div>
 	);
 };

@@ -1,15 +1,14 @@
 import React from 'react';
 import ItemCount from './ItemCount';
 import { useContext } from 'react';
-import { CarritoContext } from './CartContext';
-import Item from './Item';
+import { carritoContext } from './CartContext';
 
 import '../cardsStyle.css';
 
 function ItemDetail({ item = [] }) {
 	const { producto, tipo, img, precio, stock } = item;
 
-	const Carrito = useContext(CarritoContext);
+	const Carrito = useContext(carritoContext);
 
 	const onAdd = (count) => {
 		Carrito.addItem(item, count);
@@ -38,5 +37,5 @@ function ItemDetail({ item = [] }) {
 		</div>
 	);
 }
-console.log(ItemCount);
+
 export default ItemDetail;

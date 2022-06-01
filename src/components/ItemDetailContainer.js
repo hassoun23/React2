@@ -1,5 +1,5 @@
 import React from 'react';
-import ItemCount from './ItemCount';
+
 import { useEffect, useState } from 'react';
 import { productos } from '../data/Products';
 import ItemDetail from './ItemDetail';

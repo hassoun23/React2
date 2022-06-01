@@ -1,15 +1,15 @@
 import React from 'react';
-import { CarritoContext } from './CartContext';
+import { carritoContext } from './CartContext';
 import { useContext } from 'react';
 
 function CartWidget() {
-	const { Carrito } = useContext(CarritoContext);
+	const { carrito } = useContext(carritoContext);
 	return (
 		<button type="button" class="btn btn-dark">
-			Carrito
-			{Carrito.length > 0 ? (
+			carrito
+			{carrito.length > 0 ? (
 				<span class="badge text-bg-secondary">
-					{Carrito.reduce((a, b) => a + b.count, 0)}
+					{carrito.reduce((a, b) => a + b.count, 0)}
 				</span>
 			) : null}
 		</button>

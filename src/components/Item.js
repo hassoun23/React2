@@ -1,9 +1,9 @@
 import React from "react";
-import ItemCount from "./ItemCount";
+
 
 
 function Item({ item }) {
-  const { producto, tipo, img, precio, stock } = item;
+  const { producto, tipo, img, precio} = item;
   return (
 
       <div className="card">

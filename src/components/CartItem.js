@@ -1,10 +1,10 @@
-import { CarritoContext } from './CartContext';
+import { carritoContext } from './CartContext';
 import { useContext } from 'react';
 
 const CartItem = ({ productCarrito, count }) => {
-	const { producto, tipo, img, precio, id } = productCarrito;
+	const { producto, tipo, img, id } = productCarrito;
 
-	const cart = useContext(CarritoContext);
+	const cart = useContext(carritoContext);
 
 	return (
 		<div className="" Name="card mb-3" style="max-width: 540px;">
