@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const ItemCount = ({ producto, stock, precio, onAdd, tipo, initial }) => {
 	let [count, setCount] = useState(initial);
-	const [CurrentStock, setCurrentStock] = useState(stock);
 
 	return (
 		<div className="container ">
@@ -18,11 +16,7 @@ const ItemCount = ({ producto, stock, precio, onAdd, tipo, initial }) => {
 					<h3 className="p-2 ">{count}</h3>
 					<button
 						className="boton-sumar"
-						onClick={() =>
-							count < CurrentStock
-								? setCount(count + 1)
-								: (count = CurrentStock)
-						}
+						onClick={() => (count < stock ? setCount(count + 1) : null)}
 					>
 						+
 					</button>
@@ -33,7 +27,6 @@ const ItemCount = ({ producto, stock, precio, onAdd, tipo, initial }) => {
 						className="boton-agragar"
 						onClick={() => {
 							onAdd(count, tipo);
-							setCurrentStock(CurrentStock - count);
 							setCount(0);
 						}}
 					>

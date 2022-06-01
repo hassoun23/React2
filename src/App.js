@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './views/Home/Home';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import './cardsStyle.css';
-import Cart from './views/Cart/Cart';
+
 import ItemListContainer from './components/ItemListContainer';
 import { CarritoProvaider } from './components/CartContext';
+import CartCarrito from './views/CartCarrito/CartCarrito';
 
 function App() {
 	return (
@@ -23,7 +24,7 @@ function App() {
 							path="/categoria/:category"
 							element={<ItemListContainer />}
 						/>
-						<Route path="/cart" element={<Cart />} />
+						<Route path="/cart" element={<CartCarrito />} />
 					</Routes>
 				</Router>
 			</CarritoProvaider>
