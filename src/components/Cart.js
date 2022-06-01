@@ -3,21 +3,24 @@ import { carritoContext } from './CartContext';
 import { useContext } from 'react';
 import CartItem from './CartItem';
 
-const Cart = (producto) => {
-	const cart = useContext(carritoContext);
+const Cart = () => {
+	const { carrito } = useContext(carritoContext);
 
-	console.log(cart);
+	console.log(carrito);
 
 	return (
 		<div>
-			{cart.length > 0 ? (
-				cart.map((carr) => {
+			{carrito.length > 0 ? (
+				carrito.map((carr) => {
 					return (
 						<CartItem
 							key={carr.id}
-							producto={carr.item.producto}
+							productoCarrito={carr.carrito}
 							img={carr.item.img}
 							tipo={carr.item.tipo}
+							producto={carr.item.producto}
+							count={carr.count}
+							id={carr.item.id}
 						/>
 					);
 				})

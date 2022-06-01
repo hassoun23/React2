@@ -25,7 +25,7 @@ export const CarritoProvaider = ({ children }) => {
 	};
 
 	const EliminarItem = (item) => {
-		setcarrito(carrito.filter((el) => el.item.id === item));
+		setcarrito(carrito.filter((el) => el.item.id !== item));
 	};
 
 	const clear = () => {
