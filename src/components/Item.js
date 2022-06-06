@@ -10,7 +10,7 @@ function Item({ item }) {
 			<div className="card-body">
 				<h3 className="card-title">{producto}</h3>
 				<h4 className="card-text">{tipo}</h4>
-				<h2 className="card-precio">{precio}</h2>
+				<h2 className="card-precio">${precio}</h2>
 				{/* <ItemCount stock={stock} /> */}
 			</div>
 		</div>

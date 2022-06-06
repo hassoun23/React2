@@ -12,7 +12,7 @@ function ItemList({ items }) {
 						<div className="col-md-4" key={iteracion.id}>
 							<Link
 								to={`detail/${iteracion.id}`}
-								style={{ textDecoration: 'none' }}
+								style={{ textDecoration: 'none', color: 'black' }}
 							>
 								<Item item={iteracion} />
 							</Link>

@@ -7,7 +7,6 @@ import '../cardsStyle.css';
 
 function ItemDetail({ item = [] }) {
 	const { producto, tipo, img, precio, stock } = item;
-
 	const Carrito = useContext(carritoContext);
 
 	const onAdd = (count) => {

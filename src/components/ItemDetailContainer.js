@@ -1,32 +1,49 @@
 import React from 'react';
 
 import { useEffect, useState } from 'react';
-import { productos } from '../data/Products';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
 import '../cardsStyle.css';
+import {
+	collection,
+	query,
+	where,
+	getDocs,
+	documentId,
+} from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
 
 const ItemDetailContainer = () => {
 	let { id } = useParams();
 	const [item, setitem] = useState([]);
 
 	useEffect(() => {
-		const data = new Promise((resolve, reject) => {
-			resolve(productos);
-			console.log(data);
-		});
-		data.then((data) => {
-			setitem(data.find((el) => el.id === id));
-		});
-		data.catch((err) => {
-			console.log(err);
-		});
+		const getProductos = async () => {
+			const q = query(
+				collection(db, 'productos'),
+				where(documentId(), '==', id)
+			);
+			const querySnapshot = await getDocs(q);
+			const docs = [];
+			querySnapshot.forEach((doc) => {
+				// doc.data() is never undefined for query doc snapshots
+				docs.push({ ...doc.data(), id: doc.id });
+				console.log(docs);
+			});
+			console.log(docs);
+			setitem(docs);
+		};
+		getProductos();
 	}, [id]);
 
 	return (
 		<div>
 			<h2>Detalle del producto</h2>
-			{item !== undefined ? <ItemDetail item={item} /> : null}
+			{item !== undefined
+				? item.map((iteracion) => {
+						return <ItemDetail item={iteracion} />;
+				  })
+				: null}
 		</div>
 	);
 };
