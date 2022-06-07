@@ -17,15 +17,15 @@ const CartItem = ({ producto, tipo, img, id, count }) => {
 						<p className="card-text">
 							<small className="text-muted"></small>
 						</p>
-						<h3>{count + 'unidades'} </h3>
-						<h6>
+						<h3>{count + ' unidades'} </h3>
+						{/* <h6>
 							{'TOTAL: $' +
 								carrito.carrito.reduce(
 									(acc, el) => acc + el.item.precio * el.count,
 									0
 								)}
 							;
-						</h6>
+						</h6> */}
 					</div>
 					<button
 						type="button"
@@ -35,6 +35,7 @@ const CartItem = ({ producto, tipo, img, id, count }) => {
 					></button>
 				</div>
 			</div>
+			<hr></hr>
 		</div>
 	);
 };

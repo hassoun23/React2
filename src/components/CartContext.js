@@ -9,13 +9,24 @@ export const CarritoProvaider = ({ children }) => {
 		return carrito.some((el) => el.item.id === id);
 	};
 
-	const addExistingItem = (item, count) => {
-		let newcarrito = carrito;
+	const addExistingItem = (item) => {
+		/* let newcarrito = carrito;
 		let existingItem = newcarrito.find((el) => el.item.id === item.id);
 		existingItem.quant += count;
 		newcarrito[newcarrito.findIndex((el) => el.item.id === item.id)] =
 			existingItem;
-		setcarrito(newcarrito);
+		setcarrito(newcarrito); */
+		const productoRepetido = carrito.findIndex((el) => el.id === item.id);
+
+		if (productoRepetido !== -1) {
+			setcarrito(
+				carrito.map((el) =>
+					el.id === item.id ? { ...el, count: el.count + item.count } : el
+				)
+			);
+		} else {
+			setcarrito([item, ...carrito]);
+		}
 	};
 
 	const addItem = (item, count) => {

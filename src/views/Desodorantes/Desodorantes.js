@@ -3,7 +3,7 @@ import "../../cardsStyle.css";
 
 function Productos() {
   return (
-    <div>Productos</div>
+    <div>DESODORANTES</div>
   )
 }
 

@@ -3,6 +3,7 @@ import '../cardsStyle.css';
 
 function Item({ item }) {
 	const { producto, tipo, img, precio } = item;
+	console.log(item);
 	return (
 		<div className="card">
 			<img src={img} alt={producto} className="card-img-top" />

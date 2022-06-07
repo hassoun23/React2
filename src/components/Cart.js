@@ -13,15 +13,24 @@ const Cart = () => {
 			{carrito.length > 0 ? (
 				carrito.map((carr) => {
 					return (
-						<CartItem
-							key={carr.id}
-							productoCarrito={carr.carrito}
-							img={carr.item.img}
-							tipo={carr.item.tipo}
-							producto={carr.item.producto}
-							count={carr.count}
-							id={carr.item.id}
-						/>
+						<div>
+							<CartItem
+								key={carr.id}
+								productoCarrito={carr.carrito}
+								img={carr.item.img}
+								tipo={carr.item.tipo}
+								producto={carr.item.producto}
+								count={carr.count}
+								id={carr.item.id}
+							/>
+							<h3>
+								{'TOTAL: $ ' +
+									carrito.reduce(
+										(acc, el) => acc + el.item.precio * el.count,
+										0
+									)}
+							</h3>
+						</div>
 					);
 				})
 			) : (

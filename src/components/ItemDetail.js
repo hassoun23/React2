@@ -5,7 +5,7 @@ import { carritoContext } from './CartContext';
 
 import '../cardsStyle.css';
 
-function ItemDetail({ item = [] }) {
+function ItemDetail({ item }) {
 	const { producto, tipo, img, precio, stock } = item;
 	const Carrito = useContext(carritoContext);
 

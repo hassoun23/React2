@@ -7,14 +7,14 @@ function ItemList({ items }) {
 	return (
 		<div className="container" style={{ maxWidth: 1320 }}>
 			<div className="row ">
-				{items.map((iteracion) => {
+				{items.map((prod) => {
 					return (
-						<div className="col-md-4" key={iteracion.id}>
+						<div className="col-md-4" key={prod.id}>
 							<Link
-								to={`detail/${iteracion.id}`}
+								to={`/detail/${prod.id}`}
 								style={{ textDecoration: 'none', color: 'black' }}
 							>
-								<Item item={iteracion} />
+								<Item item={prod} />
 							</Link>
 						</div>
 					);
