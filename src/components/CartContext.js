@@ -6,37 +6,25 @@ export const CarritoProvaider = ({ children }) => {
 	const [carrito, setcarrito] = useState([]);
 
 	const Encarrito = (id) => {
-		return carrito.some((el) => el.item.id === id);
+		return carrito.some((el) => el.id === id);
 	};
 
-	const addExistingItem = (item) => {
-		/* let newcarrito = carrito;
-		let existingItem = newcarrito.find((el) => el.item.id === item.id);
-		existingItem.quant += count;
-		newcarrito[newcarrito.findIndex((el) => el.item.id === item.id)] =
-			existingItem;
-		setcarrito(newcarrito); */
-		const productoRepetido = carrito.findIndex((el) => el.id === item.id);
-
-		if (productoRepetido !== -1) {
-			setcarrito(
-				carrito.map((el) =>
-					el.id === item.id ? { ...el, count: el.count + item.count } : el
-				)
-			);
-		} else {
-			setcarrito([item, ...carrito]);
-		}
+	const addExistingItem = (item, count) => {
+		setcarrito(
+			carrito.map((el) =>
+				el.id === item.id ? { ...el, count: el.count + count } : el
+			)
+		);
 	};
 
 	const addItem = (item, count) => {
 		Encarrito(item.id)
 			? addExistingItem(item, count)
-			: setcarrito([...carrito, { item: item, count: count }]);
+			: setcarrito([...carrito, { ...item, count: count }]);
 	};
 
 	const EliminarItem = (item) => {
-		setcarrito(carrito.filter((el) => el.item.id !== item));
+		setcarrito(carrito.filter((el) => el.id !== item));
 	};
 
 	const clear = () => {

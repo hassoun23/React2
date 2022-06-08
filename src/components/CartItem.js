@@ -26,13 +26,13 @@ const CartItem = ({ producto, tipo, img, id, count }) => {
 								)}
 							;
 						</h6> */}
+						<button
+							className="btn btn-outline-danger boton-eliminar"
+							onClick={() => carrito.EliminarItem(id)}
+						>
+							X
+						</button>
 					</div>
-					<button
-						type="button"
-						className="btn-close"
-						aria-label="Close"
-						onClick={() => carrito.EliminarItem(id)}
-					></button>
 				</div>
 			</div>
 			<hr></hr>

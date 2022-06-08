@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
@@ -41,7 +40,7 @@ const ItemDetailContainer = () => {
 			<h2>Detalle del producto</h2>
 			{item !== undefined
 				? item.map((iteracion) => {
-						return <ItemDetail item={iteracion} />;
+						return <ItemDetail item={iteracion} key={iteracion.id} />;
 				  })
 				: null}
 		</div>

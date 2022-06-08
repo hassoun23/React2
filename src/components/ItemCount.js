@@ -26,8 +26,8 @@ const ItemCount = ({ producto, stock, precio, onAdd, tipo, initial }) => {
 					<button
 						className="boton-agragar"
 						onClick={() => {
-							onAdd(count, tipo);
-              
+							onAdd(count, producto);
+
 							setCount(0);
 						}}
 					>

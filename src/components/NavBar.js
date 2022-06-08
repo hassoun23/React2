@@ -42,6 +42,11 @@ function NavBar() {
 									<h3 className="nav-link">Afeitadoras</h3>
 								</li>
 							</Link>
+							<Link to={`/Shop`}>
+								<li className="nav-item">
+									<h3 className="nav-link">Shop</h3>
+								</li>
+							</Link>
 						</ul>
 						<div>
 							<Link to={`/cart`}>
