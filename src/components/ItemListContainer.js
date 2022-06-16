@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import { collection, query, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebaseConfig';
+import Portada from '../portada.png';
 
 const ItemListContainer = () => {
 	let { category } = useParams();
@@ -30,6 +31,13 @@ const ItemListContainer = () => {
 
 	return (
 		<>
+			<div className="home-portada">
+				<img src={Portada} alt="" width="300px" />
+				<h2 className="texto-home">
+					{category === undefined ? <h2>Bienvenidos a Realstock</h2> : category}
+				</h2>
+			</div>
+
 			<div>
 				<ItemList items={item} />
 			</div>

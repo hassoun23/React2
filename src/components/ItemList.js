@@ -1,11 +1,11 @@
 import React from 'react';
 import Item from './Item';
 import { Link } from 'react-router-dom';
-import '../cardsStyle.css';
+import '../Style.css';
 
 function ItemList({ items }) {
 	return (
-		<div className="container" style={{ maxWidth: 1320 }}>
+		<div className="container container-productos" style={{ maxWidth: 1320 }}>
 			<div className="row ">
 				{items.map((prod) => {
 					return (

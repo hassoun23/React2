@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom';
-import '../cardsStyle.css';
+import '../Style.css';
 import {
 	collection,
 	query,

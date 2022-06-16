@@ -1,5 +1,5 @@
 import React from 'react';
-import '../cardsStyle.css';
+import '../Style.css';
 
 function Item({ item }) {
 	const { producto, tipo, img, precio } = item;

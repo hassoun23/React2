@@ -2,8 +2,7 @@ import React from 'react';
 import ItemCount from './ItemCount';
 import { useContext } from 'react';
 import { carritoContext } from './CartContext';
-
-import '../cardsStyle.css';
+import '../Style.css';
 
 function ItemDetail({ item }) {
 	const { producto, tipo, img, precio, stock } = item;

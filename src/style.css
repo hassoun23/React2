@@ -1,31 +1,145 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;1,200&display=swap');
 
-
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Work Sans', sans-serif;
 }
 
 body {
-    display: flex;  
-    justify-content: center;
-    align-content: center;
-    min-height: 100vh;
-    background: #dcdcdc;
-
+	background: #dcdcdc;
+}
+.nav-list {
+	justify-content: space-between;
+	padding-left: 15rem;
 }
 
-.card-container{
-width: 100%;
-display: flex;
-max-width: 1100px;
-
+.nav-link {
+	font-family: 'Work Sans', sans-serif;
 }
 
-.card{
-    width: 100%;
-    margin: 20px;
-    border-radius:6px;
-    overflow: hidden;
+.texto-home {
+	text-align: center;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bolder;
+	font-size: 3rem;
+	margin-top: 5rem;
+}
+.home-portada {
+	display: flex;
+	background-color: #f08a26;
+	justify-content: center;
+}
 
+.container {
+	box-shadow: 0px 1 px 10px rgba(0, 0, 0, 0.2);
+}
+.container-productos {
+	background: #f3f2f2;
+}
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+.card {
+	margin: 20px;
+	display: flex;
+	flex-direction: row;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0px 1 px 10px rgba(0, 0, 0, 0.2);
+	gap: 4px;
+	height: 90%;
+}
+.card-contenido {
+	text-align: center;
+}
+
+.card img {
+	width: 100%;
+	height: 100%;
+}
+.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 3rem;
+}
+
+.card-title {
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+.card-text {
+	font-family: 'Work Sans', sans-serif;
+	text-align: center;
+}
+
+.item-list {
+	display: flex;
+	flex-direction: row;
+
+	gap: 0;
+}
+
+.botones {
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+}
+
+.botonAdd {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding-top: 0.5px;
+}
+
+.boton-restar {
+	margin-bottom: 1rem;
+	margin-right: 1rem;
+	padding: 5px;
+}
+
+.boton-sumar {
+	margin-bottom: 1rem;
+	margin-left: 1rem;
+	padding: 5px;
+}
+
+.cardDos {
+	width: 100%;
+	border: 1px solid black;
+	display: flex;
+	justify-content: center;
+}
+
+.cardDos img {
+	width: 700px;
+	display: inline-block;
+	margin-left: 10rem;
+	align-content: center;
+}
+
+.boton-vaciar {
+	margin-left: 15rem;
+}
+
+.boton-eliminar {
+	color: red;
+	font-size: 2rem;
+	margin-left: 3rem;
+}
+
+.boton-finalizarCompra {
+	display: flex;
+	justify-content: end;
+	margin-right: 2rem;
 }

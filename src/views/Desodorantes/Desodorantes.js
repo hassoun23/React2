@@ -1,10 +1,12 @@
-import React from 'react'
-import "../../cardsStyle.css";
+import React from 'react';
+import '../../Style.css';
 
 function Productos() {
-  return (
-    <div>DESODORANTES</div>
-  )
+	return (
+		<>
+			<div>DESODORANTES</div>
+		</>
+	);
 }
 
-export default Productos
+export default Productos;

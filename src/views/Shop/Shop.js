@@ -85,7 +85,7 @@ function Shop() {
 					<br />
 					<div className="container d-flex justify-content-center mb-5">
 						<div className="row col-3 col-md-4 col-sm-6">
-							<button className="btn btn-primary">Enviar</button>
+							<button className="btn btn-primary">Comprar</button>
 						</div>
 					</div>
 				</form>
