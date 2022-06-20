@@ -2,8 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase/firebaseConfig';
-import MessageSuccess from '../../components/MessageSuccess';
-import { carritoContext } from '../../components/CartContext';
+import MessageSuccess from '../../components/MessageSuccess/MessageSuccess';
+import { carritoContext } from '../../components/CartContext/CartContext';
 import { useContext } from 'react';
 
 const initialState = {
@@ -15,7 +15,12 @@ const initialState = {
 function Shop() {
 	const [values, setValues] = useState(initialState);
 	const [purchaseId, setPurchaseId] = useState('');
-	const { carrito } = useContext(carritoContext);
+
+	const { carrito, clear } = useContext(carritoContext);
+	let total = `"$" ${carrito.reduce(
+		(acc, el) => acc + el.precio * el.count,
+		0
+	)}`;
 
 	const handlerOnChange = (e) => {
 		const { name, value } = e.target;
@@ -28,10 +33,12 @@ function Shop() {
 		const docRef = await addDoc(collection(db, 'purchase'), {
 			values,
 			carrito,
+			total,
 		});
 		console.log('Document written with ID: ', docRef.id);
 		setPurchaseId(docRef.id);
 		setValues(initialState);
+		clear();
 	};
 
 	return (

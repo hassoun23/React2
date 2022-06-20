@@ -1,8 +1,8 @@
 import React from 'react';
-import realstocklogo from '../LOGO.png';
+import realstocklogo from '../../LOGO.png';
 import { Link, NavLink } from 'react-router-dom';
-import '../Style.css';
-import CartWidget from './CartWidget';
+import '../../Style.css';
+import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar() {
 	return (
@@ -42,14 +42,24 @@ function NavBar() {
 									<h3 className="nav-link">Afeitadoras</h3>
 								</li>
 							</Link>
-							<Link to={`/Shop`}>
+							<Link to={`/categoria/alcohol`}>
 								<li className="nav-item">
-									<h3 className="nav-link">Shop</h3>
+									<h3 className="nav-link">Alcohol</h3>
+								</li>
+							</Link>
+							<Link to={`/categoria/pilas`}>
+								<li className="nav-item">
+									<h3 className="nav-link">Pilas</h3>
+								</li>
+							</Link>
+							<Link to={`/cart`}>
+								<li className="nav-item">
+									<h3 className="nav-link">Cart</h3>
 								</li>
 							</Link>
 						</ul>
 						<div>
-							<Link to={`/cart`}>
+							<Link to={`/Shop`}>
 								<CartWidget />
 							</Link>
 						</div>

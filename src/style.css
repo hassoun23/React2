@@ -25,11 +25,15 @@ body {
 	font-weight: bolder;
 	font-size: 3rem;
 	margin-top: 5rem;
+	margin-left: 7rem;
 }
 .home-portada {
 	display: flex;
 	background-color: #f08a26;
-	justify-content: center;
+}
+
+.home-portada-imagen {
+	margin-left: 20rem;
 }
 
 .container {
@@ -140,6 +144,6 @@ body {
 
 .boton-finalizarCompra {
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	margin-right: 2rem;
 }

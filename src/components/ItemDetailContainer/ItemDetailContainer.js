@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import ItemDetail from './ItemDetail';
+import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
-import '../Style.css';
+import '../../Style.css';
 import {
 	collection,
 	query,
@@ -10,7 +10,7 @@ import {
 	getDocs,
 	documentId,
 } from 'firebase/firestore';
-import { db } from '../firebase/firebaseConfig';
+import { db } from '../../firebase/firebaseConfig';
 
 const ItemDetailContainer = () => {
 	let { id } = useParams();

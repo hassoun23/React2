@@ -1,10 +1,10 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import ItemList from './ItemList';
+import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import { collection, query, getDocs } from 'firebase/firestore';
-import { db } from '../firebase/firebaseConfig';
-import Portada from '../portada.png';
+import { db } from '../../firebase/firebaseConfig';
+import Portada from '../../Portada/portada.png';
 
 const ItemListContainer = () => {
 	let { category } = useParams();
@@ -32,7 +32,12 @@ const ItemListContainer = () => {
 	return (
 		<>
 			<div className="home-portada">
-				<img src={Portada} alt="" width="300px" />
+				<img
+					className="home-portada-imagen"
+					src={Portada}
+					alt=""
+					width="300px"
+				/>
 				<h2 className="texto-home">
 					{category === undefined ? <h2>Bienvenidos a Realstock</h2> : category}
 				</h2>

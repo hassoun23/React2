@@ -1,7 +1,7 @@
 import React from 'react';
-import Item from './Item';
+import Item from '../Item/Item';
 import { Link } from 'react-router-dom';
-import '../Style.css';
+import '../../Style.css';
 
 function ItemList({ items }) {
 	return (

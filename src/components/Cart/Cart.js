@@ -1,8 +1,8 @@
 import React from 'react';
-import { carritoContext } from './CartContext';
+import { carritoContext } from '../CartContext/CartContext';
 import { useContext } from 'react';
-import CartItem from './CartItem';
-import '../Style.css';
+import CartItem from '../CartItem/CartItem';
+import '../../Style.css';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {
@@ -38,21 +38,24 @@ const Cart = () => {
 									producto={carr.producto}
 									count={carr.count}
 									id={carr.id}
+									stock={carr.stock}
 								/>
 							</div>
 						);
 					})
 				) : (
-					<h3>No hay productos en el carrito</h3>
+					<h3 className="carrito-vacio">No hay productos en el carrito</h3>
 				)}
 			</div>
-			<div className="boton-finalizarCompra">
-				<Link to="/Shop">
-					<button type="button" className="btn btn-success ">
-						Finalizar Compra
-					</button>
-				</Link>
-			</div>
+			{carrito.length > 0 ? (
+				<div className="boton-finalizarCompra">
+					<Link to="/cart">
+						<button type="button" className="btn btn-success ">
+							Finalizar Compra
+						</button>
+					</Link>
+				</div>
+			) : null}
 		</div>
 	);
 };

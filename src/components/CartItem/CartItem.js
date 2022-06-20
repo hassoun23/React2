@@ -1,4 +1,4 @@
-import { carritoContext } from './CartContext';
+import { carritoContext } from '../CartContext/CartContext';
 import { useContext } from 'react';
 
 const CartItem = ({ producto, tipo, img, id, count }) => {
