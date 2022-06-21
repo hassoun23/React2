@@ -12,15 +12,12 @@ const initialState = {
 	email: '',
 };
 
-function Shop() {
+function CartView() {
 	const [values, setValues] = useState(initialState);
 	const [purchaseId, setPurchaseId] = useState('');
 
 	const { carrito, clear } = useContext(carritoContext);
-	let total = `"$" ${carrito.reduce(
-		(acc, el) => acc + el.precio * el.count,
-		0
-	)}`;
+	let total = `$ ${carrito.reduce((acc, el) => acc + el.precio * el.count, 0)}`;
 
 	const handlerOnChange = (e) => {
 		const { name, value } = e.target;
@@ -38,6 +35,7 @@ function Shop() {
 		console.log('Document written with ID: ', docRef.id);
 		setPurchaseId(docRef.id);
 		setValues(initialState);
+
 		clear();
 	};
 
@@ -102,4 +100,4 @@ function Shop() {
 	);
 }
 
-export default Shop;
+export default CartView;
