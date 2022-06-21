@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ItemListContainer from '../../components/ItemListContainer/ItemListContainer';
-import '../../Style.css';
+import '../../style.css';
 
 function Home() {
 	return (

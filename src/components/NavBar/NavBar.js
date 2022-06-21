@@ -1,7 +1,7 @@
 import React from 'react';
 import realstocklogo from '../../LOGO.png';
 import { Link, NavLink } from 'react-router-dom';
-import '../../Style.css';
+import '../../style.css';
 import CartWidget from '../CartWidget/CartWidget';
 
 function NavBar() {

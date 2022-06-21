@@ -2,7 +2,7 @@ import React from 'react';
 import { carritoContext } from '../CartContext/CartContext';
 import { useContext } from 'react';
 import CartItem from '../CartItem/CartItem';
-import '../../Style.css';
+import '../../style.css';
 import { Link } from 'react-router-dom';
 
 const Cart = () => {

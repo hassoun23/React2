@@ -1,14 +1,6 @@
 import { useState } from 'react';
 
-const ItemCount = ({
-	producto,
-	stock,
-	precio,
-	onAdd,
-	tipo,
-	initial,
-	newStock,
-}) => {
+const ItemCount = ({ producto, stock, precio, onAdd, tipo, initial }) => {
 	let [count, setCount] = useState(initial);
 
 	return (
@@ -35,7 +27,6 @@ const ItemCount = ({
 						className="boton-agragar"
 						onClick={() => {
 							onAdd(count, producto);
-							newStock = newStock - count;
 
 							setCount(0);
 						}}

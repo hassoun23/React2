@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './views/Home/Home';
 import CartView from './views/CartView/CartView';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import './Style.css';
+import './style.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { CarritoProvaider } from './components/CartContext/CartContext';
 import CartCarrito from './views/CartCarrito/CartCarrito';

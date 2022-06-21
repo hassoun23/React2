@@ -2,17 +2,15 @@ import React from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { useContext } from 'react';
 import { carritoContext } from '../CartContext/CartContext';
-import { useState } from 'react';
-import '../../Style.css';
+
+import '../../style.css';
 
 function ItemDetail({ item }) {
 	const { producto, tipo, img, precio, stock } = item;
 	const Carrito = useContext(carritoContext);
-	const [stockActual, setStockActual] = useState(stock);
 
 	const onAdd = (count) => {
 		Carrito.addItem(item, count);
-		setStockActual(stockActual - count);
 	};
 
 	return (
@@ -26,7 +24,7 @@ function ItemDetail({ item }) {
 				<h3 className="card-tituloProdDos">{producto}</h3>
 				<h4 className="card-descripcionDos">{tipo}</h4>
 				<h2 className="card-precioDos">${precio}</h2>
-				<h4 className="card-stockDos">Stock Disponible: {stockActual}</h4>
+				<h4 className="card-stockDos">Stock Disponible: {stock}</h4>
 				<ItemCount
 					producto={item.producto}
 					stock={item.stock}

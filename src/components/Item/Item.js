@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Style.css';
+import '../../style.css';
 
 function Item({ item }) {
 	const { producto, tipo, img, precio } = item;
