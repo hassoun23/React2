@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Distribuidora Realstock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Proyecto final de react para CoderHouse
+
+Utilizando bootstrap desde el cdn para adquirir los estilos de la app
 
 ## Available Scripts
 
