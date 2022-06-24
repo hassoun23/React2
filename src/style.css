@@ -99,6 +99,11 @@ body {
 	justify-content: center;
 }
 
+.boton-volver-carrito {
+	margin-left: 46rem;
+	margin-top: 2rem;
+}
+
 .botonAdd {
 	display: flex;
 	justify-content: center;
@@ -130,6 +135,11 @@ body {
 	display: inline-block;
 	margin-left: 10rem;
 	align-content: center;
+}
+
+.carrito-vacio {
+	text-align: center;
+	margin-top: 10rem;
 }
 
 .boton-vaciar {

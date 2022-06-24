@@ -39,7 +39,11 @@ const ItemListContainer = () => {
 					width="300px"
 				/>
 				<h2 className="texto-home">
-					{category === undefined ? <h2>Bienvenidos a Realstock</h2> : category}
+					{category === undefined ? (
+						<span>Bienvenidos a Realstock</span>
+					) : (
+						category
+					)}
 				</h2>
 			</div>
 

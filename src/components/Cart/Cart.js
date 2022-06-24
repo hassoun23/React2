@@ -13,18 +13,23 @@ const Cart = () => {
 	return (
 		<div>
 			<div className="d-flex justify-content-center mt-2">
-				<h3>
-					{'TOTAL: $ ' +
-						carrito.reduce((acc, el) => acc + el.precio * el.count, 0)}
-				</h3>
-				<button
-					type="button"
-					className="btn btn-danger boton-vaciar"
-					onClick={() => clear()}
-				>
-					Vaciar
-				</button>
+				{carrito.length > 0 ? (
+					<div>
+						<h3>
+							{'TOTAL: $ ' +
+								carrito.reduce((acc, el) => acc + el.precio * el.count, 0)}
+						</h3>
+						<button
+							type="button"
+							className="btn btn-danger boton-vaciar"
+							onClick={() => clear()}
+						>
+							Vaciar
+						</button>{' '}
+					</div>
+				) : null}
 			</div>
+
 			<div>
 				{carrito.length > 0 ? (
 					carrito.map((carr) => {
@@ -44,7 +49,17 @@ const Cart = () => {
 						);
 					})
 				) : (
-					<h3 className="carrito-vacio">No hay productos en el carrito</h3>
+					<div>
+						<h3 className="carrito-vacio">OOPS! TU CARRITO ESTÁ VACÍO.</h3>
+						<Link to={`/`}>
+							<button
+								type="button"
+								className="btn btn-primary boton-volver-carrito"
+							>
+								Volver a comprar
+							</button>
+						</Link>
+					</div>
 				)}
 			</div>
 			{carrito.length > 0 ? (

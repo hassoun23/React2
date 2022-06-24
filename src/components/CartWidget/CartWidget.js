@@ -5,7 +5,7 @@ import { useContext } from 'react';
 function CartWidget() {
 	const { carrito } = useContext(carritoContext);
 	return (
-		<button type="button" class="btn btn-dark">
+		<button type="button" className="btn btn-dark">
 			carrito
 			{carrito.length > 0 ? (
 				<span className="badge text-bg-secondary">

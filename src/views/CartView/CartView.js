@@ -15,6 +15,7 @@ const initialState = {
 function CartView() {
 	const [values, setValues] = useState(initialState);
 	const [purchaseId, setPurchaseId] = useState('');
+	const [send, setSend] = useState(true);
 
 	const { carrito, clear } = useContext(carritoContext);
 	let total = `$ ${carrito.reduce((acc, el) => acc + el.precio * el.count, 0)}`;
@@ -24,79 +25,93 @@ function CartView() {
 		setValues({ ...values, [name]: value });
 		console.log(values);
 	};
-
+	const items = carrito.map((e) => {
+		return {
+			id: e.id,
+			Nombre: e.producto,
+			Precio: e.precio,
+			Detalle: e.tipo,
+			Cantidad: e.count,
+		};
+	});
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const docRef = await addDoc(collection(db, 'purchase'), {
 			values,
-			carrito,
+			items,
 			total,
 		});
 		console.log('Document written with ID: ', docRef.id);
 		setPurchaseId(docRef.id);
 		setValues(initialState);
+		setSend(false);
 
 		clear();
 	};
 
 	return (
-		<div className="container mt-5 d-flex justify-content-center align-items-center">
-			<div className="row col-md-6 ">
-				<form
-					action="#"
-					method="get"
-					className="d-flex flex-column justify-content-center"
-					onSubmit={handleSubmit}
-				>
-					<div className="form-group">
-						<label for="name">Nombre:</label>
-						<input
-							className="form-control"
-							type="text"
-							name="name"
-							id="name"
-							placeholder="Introduzca su nombre"
-							value={values.name}
-							onChange={handlerOnChange}
-						/>
-					</div>
+		<>
+			{send ? (
+				<div className="container mt-5 d-flex justify-content-center align-items-center">
+					<div className="row col-md-6 ">
+						<form
+							action="#"
+							method="get"
+							className="d-flex flex-column justify-content-center"
+							onSubmit={handleSubmit}
+						>
+							<div className="form-group">
+								<label for="name">Nombre:</label>
+								<input
+									className="form-control"
+									type="text"
+									name="name"
+									id="name"
+									placeholder="Introduzca su nombre"
+									value={values.name}
+									onChange={handlerOnChange}
+								/>
+							</div>
 
-					<div className="form-group">
-						<label for="idnumber">Telefono:</label>
-						<input
-							className="form-control"
-							type="number"
-							name="phone"
-							id="phone"
-							placeholder="Ingrese su telefono"
-							value={values.phone}
-							onChange={handlerOnChange}
-						/>
-					</div>
+							<div className="form-group">
+								<label for="idnumber">Telefono:</label>
+								<input
+									className="form-control"
+									type="number"
+									name="phone"
+									id="phone"
+									placeholder="Ingrese su telefono"
+									value={values.phone}
+									onChange={handlerOnChange}
+								/>
+							</div>
 
-					<div className="form-group">
-						<label for="email">Correo electronico:</label>
-						<input
-							className="form-control"
-							type="email"
-							name="email"
-							id="email"
-							placeholder="Introduzca su email"
-							value={values.email}
-							onChange={handlerOnChange}
-						/>
-					</div>
+							<div className="form-group">
+								<label for="email">Correo electronico:</label>
+								<input
+									className="form-control"
+									type="email"
+									name="email"
+									id="email"
+									placeholder="Introduzca su email"
+									value={values.email}
+									onChange={handlerOnChange}
+								/>
+							</div>
 
-					<br />
-					<div className="container d-flex justify-content-center mb-5">
-						<div className="row col-3 col-md-4 col-sm-6">
-							<button className="btn btn-primary">Comprar</button>
-						</div>
+							<br />
+							<div className="container d-flex justify-content-center mb-5">
+								<div className="row col-3 col-md-4 col-sm-6">
+									<button className="btn btn-primary">Comprar</button>
+								</div>
+							</div>
+						</form>
 					</div>
-				</form>
-				{purchaseId && <MessageSuccess purchaseId={purchaseId} />}
-			</div>
-		</div>
+				</div>
+			) : (
+				<MessageSuccess purchaseId={purchaseId} />
+			)}
+		</>
 	);
 }
 
